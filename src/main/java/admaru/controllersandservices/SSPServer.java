@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 public class SSPServer {
 
     @Autowired
-    private WebClient.Builder webClientBuilder;
+	public WebClient.Builder webClientBuilder;
 
     @GetMapping("/highestBid")
     public Mono<Object> getHighestBid() {
