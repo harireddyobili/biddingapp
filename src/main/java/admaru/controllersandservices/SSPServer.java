@@ -17,6 +17,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/ssp")
+
 public class SSPServer {
 
     @Autowired
@@ -27,7 +28,7 @@ public class SSPServer {
         // Configure the WebClient to handle JSON responses
         WebClient webClient = webClientBuilder.baseUrl("http://localhost:8080").build();
         webClient = webClient.mutate().codecs(configurer -> configurer.defaultCodecs().jackson2JsonDecoder(new Jackson2JsonDecoder())).build();
-
+        System.out.println("inside ssp");
         // Call the DSP1 service endpoint to get bid responses
         Flux<BidResponseData> bidResponsesFromDSP1 = webClient
                 .get()
